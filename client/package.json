@@ -29,5 +29,15 @@
     "autoprefixer": "^10.5.4",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1"
+  },
+  "overrides": {
+    "@react-three/drei": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@react-three/fiber": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }
