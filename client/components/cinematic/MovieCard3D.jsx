@@ -36,7 +36,7 @@ export default function MovieCard3D({ movie }) {
   return (
     <div
       onClick={handleCardClick}
-      className="relative flex-shrink-0 w-[250px] sm:w-[290px] md:w-[320px] group/card cursor-pointer block select-none"
+      className="relative flex-shrink-0 w-[170px] sm:w-[210px] md:w-[240px] group/card cursor-pointer block select-none"
     >
       {/* Large Vertical Aspect 2/3 Poster Card with Dull & 4K Hover Filter */}
       <div className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden border border-white/10 shadow-xl brightness-75 contrast-95 saturate-90 group-hover/card:brightness-110 group-hover/card:contrast-110 group-hover/card:saturate-125 group-hover/card:scale-105 group-hover/card:border-cyan-400/80 group-hover/card:shadow-[0_0_35px_rgba(6,182,212,0.5)] transition-all duration-300">
