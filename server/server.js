@@ -23,7 +23,8 @@ connectDB();
 // Middleware
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://watch.sickykumar.in'
+  'https://watch.sickykumar.in',
+  'https://online-ott-platform.vercel.app'
 ];
 
 app.use(cors({
