@@ -344,7 +344,10 @@ export default function HeroSlider({ movies = [] }) {
                   <span className="text-white font-black">{g}</span>
                   {i < currentMovie.genres.length - 1 && <span className="text-gray-500 font-normal">|</span>}
                 </span>
-                {/* 6. Scaled Primary Action Buttons */}
+              ))}
+            </div>
+
+            {/* 6. Scaled Primary Action Buttons */}
             <div className="flex items-center gap-2 pt-2 sm:gap-4 sm:pt-3">
               {user ? (
                 <Link

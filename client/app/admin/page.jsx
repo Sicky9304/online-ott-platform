@@ -208,34 +208,34 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Global Action Bar */}
-        <div className="flex flex-wrap items-center gap-2.5">
+        <div className="flex flex-wrap xl:flex-nowrap items-center gap-2">
           <button
             onClick={handleOpenAdd}
-            className="px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs sm:text-sm flex items-center gap-1.5 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="px-3.5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.25)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
           >
-            <Plus className="w-4 h-4 stroke-[3]" /> Add {activeTab.slice(0, -1).toUpperCase()}
+            <Plus className="w-3.5 h-3.5 stroke-[3]" /> Add {activeTab.slice(0, -1).toUpperCase()}
           </button>
           
           <Link
             href="/admin/upload"
-            className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs sm:text-sm font-black flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs font-black flex items-center gap-1.5 transition-colors whitespace-nowrap"
           >
-            <UploadCloud className="w-4 h-4 text-cyan-400" /> Upload Engine
+            <UploadCloud className="w-3.5 h-3.5 text-cyan-400" /> Upload Engine
           </Link>
           
           <Link
             href="/admin/storage"
-            className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs sm:text-sm font-black flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs font-black flex items-center gap-1.5 transition-colors whitespace-nowrap"
           >
-            <HardDrive className="w-4 h-4 text-cyan-400" /> Storage Config
+            <HardDrive className="w-3.5 h-3.5 text-cyan-400" /> Storage Config
           </Link>
 
           <button
             onClick={logout}
-            className="px-4 py-3 rounded-xl bg-gradient-to-r from-red-600 via-orange-600 to-rose-700 hover:opacity-90 text-white font-black text-xs sm:text-sm flex items-center gap-1.5 shadow-[0_0_15px_rgba(220,38,38,0.35)] transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 via-orange-600 to-rose-700 hover:opacity-90 text-white font-black text-xs flex items-center gap-1.5 shadow-[0_0_12px_rgba(220,38,38,0.35)] transition-all cursor-pointer transform hover:scale-105 active:scale-95 whitespace-nowrap"
             title="Log Out Session"
           >
-            <LogOut className="w-4 h-4" /> Logout
+            <LogOut className="w-3.5 h-3.5" /> Logout
           </button>
         </div>
       </div>
