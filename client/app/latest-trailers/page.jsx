@@ -48,11 +48,15 @@ function TrailerCard({ trailer, onPlay }) {
         </div>
 
         {/* Bottom title + meta */}
-        <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10">
-          <h3 className="text-base md:text-lg font-black text-gray-200 line-clamp-1 drop-shadow-md group-hover/card:text-cyan-300 transition-colors">
-            {trailer.title}
+        <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
+          <h3 className="text-xs sm:text-sm md:text-base font-black text-gray-200 line-clamp-1 drop-shadow-md group-hover/card:text-cyan-300 transition-colors" title={trailer.title}>
+            {(() => {
+              // Extract string before separators like | or - to clean up YouTube titles
+              const baseTitle = trailer.title.split(/[|#-]/)[0].trim();
+              return baseTitle.length > 12 ? `${baseTitle.slice(0, 11)}...` : baseTitle;
+            })()}
           </h3>
-          <p className="text-xs text-gray-400 font-extrabold mt-0.5">
+          <p className="text-[10px] text-gray-400 font-extrabold mt-0.5">
             {trailer.releaseYear} • {trailer.genres?.[0] || 'Drama'}
           </p>
         </div>
