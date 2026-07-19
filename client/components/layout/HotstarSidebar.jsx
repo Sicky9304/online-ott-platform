@@ -172,21 +172,21 @@ export default function HotstarSidebar() {
       <motion.div
         onMouseEnter={() => setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
-        animate={{ width: isExpanded ? '270px' : '88px' }}
+        animate={{ width: isExpanded ? '230px' : '76px' }}
         transition={{ duration: 0.25, ease: 'easeInOut' }}
-        className="hidden md:flex fixed left-0 top-0 bottom-0 z-50 bg-gradient-to-r from-[#050508]/95 via-[#050508]/75 to-transparent backdrop-blur-md flex-col justify-between py-6 overflow-hidden select-none"
+        className="hidden md:flex fixed left-0 top-0 bottom-0 z-50 bg-gradient-to-r from-[#050508]/95 via-[#050508]/75 to-transparent backdrop-blur-md flex-col justify-between py-5 overflow-hidden select-none"
       >
         {/* Top Brand Star Logo */}
-        <div className="flex flex-col items-center px-4 space-y-6">
-          <Link href="/" className="flex items-center gap-3 w-full">
-            <div className="m-2 p-2 rounded-2xl text-cyan-400 flex-shrink-0">
-              <Sparkles className="w-9 h-9 fill-cyan-400 text-cyan-400 drop-shadow-[0_0_20px_rgba(6,182,212,0.9)]" />
+        <div className="flex flex-col items-center px-3 space-y-4">
+          <Link href="/" className="flex items-center gap-2.5 w-full">
+            <div className="m-1.5 p-1.5 text-cyan-400 flex-shrink-0">
+              <Sparkles className="w-8 h-8 fill-cyan-400 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)]" />
             </div>
             {isExpanded && (
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-2xl font-black tracking-wider text-white"
+                className="text-xl font-black tracking-wider text-white"
               >
                 CINE<span className="text-cyan-400">VERSE</span>
               </motion.span>
@@ -195,7 +195,7 @@ export default function HotstarSidebar() {
         </div>
 
         {/* Main Desktop Sidebar Navigation */}
-        <nav className="flex-1 flex flex-col justify-center px-3 space-y-3.5">
+        <nav className="flex-1 flex flex-col justify-center px-2 space-y-2.5">
           {desktopMenuItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.path;
@@ -203,19 +203,19 @@ export default function HotstarSidebar() {
               <Link
                 key={item.name}
                 href={item.path}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-2xl transition-all duration-300 relative group ${
-                  isActive ? 'text-white font-black bg-white/10 shadow-lg backdrop-blur-md' : 'text-gray-400 hover:text-white hover:bg-white/10'
+                className={`flex items-center gap-2 px-2 py-2 rounded-2xl transition-all duration-300 relative group ${
+                  isActive ? 'text-white font-black bg-white/10 shadow-md backdrop-blur-md' : 'text-gray-400 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {/* Icon Wrapper with All-Side Margin */}
-                <div className="m-2 flex items-center justify-center flex-shrink-0">
-                  <Icon className={`w-7 h-7 ${isActive ? 'text-cyan-400 fill-cyan-400/30' : ''}`} />
+                <div className="m-1.5 flex items-center justify-center flex-shrink-0">
+                  <Icon className={`w-5.5 h-5.5 ${isActive ? 'text-cyan-400 fill-cyan-400/20' : ''}`} />
                 </div>
                 {isExpanded && (
                   <motion.span
                     initial={{ opacity: 0, x: -5 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="text-base md:text-lg font-black tracking-wide whitespace-nowrap pl-1"
+                    className="text-sm md:text-base font-black tracking-wide whitespace-nowrap pl-1"
                   >
                     {item.name}
                   </motion.span>
@@ -227,29 +227,29 @@ export default function HotstarSidebar() {
           {isAdmin && (
             <Link
               href="/admin"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-2xl text-purple-400 hover:text-purple-300 hover:bg-white/10"
+              className="flex items-center gap-2 px-2 py-2 rounded-2xl text-purple-400 hover:text-purple-300 hover:bg-white/10"
             >
-              <div className="m-2 flex items-center justify-center flex-shrink-0">
-                <Shield className="w-7 h-7" />
+              <div className="m-1.5 flex items-center justify-center flex-shrink-0">
+                <Shield className="w-5.5 h-5.5" />
               </div>
-              {isExpanded && <span className="text-base md:text-lg font-black whitespace-nowrap pl-1">Admin Panel</span>}
+              {isExpanded && <span className="text-sm md:text-base font-black whitespace-nowrap pl-1">Admin Panel</span>}
             </Link>
           )}
         </nav>
 
         {/* Bottom Profile Avatar */}
-        <div className="px-4">
-          <Link href="/profile" className="flex items-center gap-3 w-full group">
-            <div className="m-2 flex-shrink-0">
+        <div className="px-3">
+          <Link href="/profile" className="flex items-center gap-2.5 w-full group">
+            <div className="m-1.5 flex-shrink-0">
               <img
                 src={user?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80'}
                 alt=""
-                className="w-10 h-10 rounded-full object-cover border-2 border-white/20 group-hover:border-cyan-400 transition-colors shadow-md"
+                className="w-8 h-8 rounded-full object-cover border-2 border-white/20 group-hover:border-cyan-400 transition-colors shadow-md"
               />
             </div>
             {isExpanded && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-left">
-                <div className="text-sm font-black text-gray-200 line-clamp-1">{user ? user.name : 'My Space'}</div>
+                <div className="text-xs font-black text-gray-200 line-clamp-1">{user ? user.name : 'My Space'}</div>
               </motion.div>
             )}
           </Link>

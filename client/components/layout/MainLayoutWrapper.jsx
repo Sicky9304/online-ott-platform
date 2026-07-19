@@ -35,7 +35,7 @@ export default function MainLayoutWrapper({ children }) {
   return (
     <>
       <HotstarSidebar />
-      <div className="flex-1 pl-0 md:pl-20 pb-20 md:pb-0 relative z-20 w-full min-h-screen flex flex-col">
+      <div className="flex-1 pl-0 md:pl-16 pb-20 md:pb-0 relative z-20 w-full min-h-screen flex flex-col">
         <main className="flex-1 w-full relative">
           {children}
         </main>

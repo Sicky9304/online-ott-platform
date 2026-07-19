@@ -190,28 +190,28 @@ export default function LatestTrailersPage() {
       <div className="relative w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-cyan-900/20 to-[#050508]" />
         <div className="relative z-10 px-4 sm:px-8 md:px-16 py-12 sm:py-16">
-          <div className="flex items-center gap-3 mb-3.5">
-            <div className="w-1.5 h-10 bg-gradient-to-b from-cyan-400 to-purple-500 rounded-full" />
-            <span className="text-sm sm:text-base font-black uppercase tracking-widest text-cyan-400">
+          <div className="flex items-center gap-2.5 mb-2">
+            <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-purple-500 rounded-full" />
+            <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-cyan-400">
               Latest Releases
             </span>
           </div>
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
             🎬 Trailers & Teasers
           </h1>
-          <p className="text-gray-300 text-base sm:text-xl md:text-2xl font-semibold mt-4 max-w-3xl leading-relaxed">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg font-semibold mt-3 max-w-2xl leading-relaxed">
             Watch official trailers for the latest movies and web series — Bollywood, Hollywood, South & more.
           </p>
 
           {/* Search */}
-          <div className="relative max-w-xl mt-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 text-cyan-400" />
+          <div className="relative max-w-lg mt-5">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
             <input
               type="text"
               value={search}
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search trailers..."
-              className="w-full pl-12 sm:pl-16 pr-5 py-3.5 sm:py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-cyan-500/50 text-white text-base sm:text-lg md:text-xl font-bold placeholder:text-gray-500 focus:outline-none focus:bg-white/8 shadow-md transition-all"
+              className="w-full pl-11 sm:pl-13 pr-4 py-2.5 sm:py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-cyan-500/50 text-white text-sm sm:text-base font-bold placeholder:text-gray-500 focus:outline-none focus:bg-white/8 shadow-md transition-all"
             />
           </div>
         </div>
@@ -225,18 +225,18 @@ export default function LatestTrailersPage() {
             <button
               key={key}
               onClick={() => { setActiveFilter(key); setPage(1); }}
-              className={`px-5 py-2.5 rounded-xl text-sm sm:text-base md:text-lg font-black flex items-center gap-2.5 transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 transition-all cursor-pointer ${
                 activeFilter === key
-                  ? 'bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.6)] scale-105 border-cyan-400'
+                  ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(6,182,212,0.4)] scale-105 border-cyan-400'
                   : 'bg-white/5 text-gray-300 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40'
               }`}
             >
-              {Icon && <Icon className="w-4 h-4 sm:w-5 sm:h-5" />}
+              {Icon && <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
               {label}
             </button>
           ))}
           {total > 0 && (
-            <span className="ml-auto text-sm sm:text-lg font-black text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-3.5 py-1.5 rounded-xl shadow-md">
+            <span className="ml-auto text-xs sm:text-sm font-black text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-3 py-1 rounded-xl shadow-md">
               📊 Total: {total} Trailers
             </span>
           )}
