@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Play, Plus, Check, Volume2, VolumeX, Globe, ChevronDown, LogIn, UserPlus, LogOut } from 'lucide-react';
+import { Play, Plus, Check, Volume2, VolumeX, Globe, ChevronDown, LogIn, UserPlus, LogOut, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import { formatDuration } from '../../lib/utils';
 
@@ -36,10 +36,12 @@ const YouTubePlayer = ({ videoId, isMuted, onVideoError }) => {
           loop: 1,
           playlist: videoId,
           playsinline: 1,
-          enablejsapi: 1
+          enablejsapi: 1,
+          origin: typeof window !== 'undefined' ? window.location.origin : ''
         },
         events: {
           onReady: (event) => {
+            event.target.mute(); // Unmute action triggers on user click to respect mobile policy rules
             event.target.playVideo();
           },
           onError: (event) => {
@@ -342,24 +344,21 @@ export default function HeroSlider({ movies = [] }) {
                   <span className="text-white font-black">{g}</span>
                   {i < currentMovie.genres.length - 1 && <span className="text-gray-500 font-normal">|</span>}
                 </span>
-              ))}
-            </div>
-
-            {/* 6. Scaled Primary Action Buttons */}
-            <div className="flex items-center gap-3 sm:gap-4 pt-3">
+                {/* 6. Scaled Primary Action Buttons */}
+            <div className="flex items-center gap-2 pt-2 sm:gap-4 sm:pt-3">
               {user ? (
                 <Link
                   href={`/watch/${currentMovie._id}`}
-                  className="px-8 py-4 sm:px-10 sm:py-5 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-black text-base sm:text-2xl flex items-center gap-3 shadow-[0_0_40px_rgba(6,182,212,0.4)] transition-transform hover:scale-105 cursor-pointer"
+                  className="px-4 py-2 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-black text-xs sm:text-base md:text-xl flex items-center gap-1.5 sm:gap-3 shadow-lg transition-transform hover:scale-105 cursor-pointer"
                 >
-                  <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-white" /> Watch Movie
+                  <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-white" /> Watch Movie
                 </Link>
               ) : (
                 <Link
                   href="/login"
-                  className="px-8 py-4 sm:px-10 sm:py-5 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-500 hover:to-purple-500 text-white font-black text-base sm:text-2xl flex items-center gap-3 shadow-[0_0_40px_rgba(219,39,119,0.4)] transition-transform hover:scale-105 cursor-pointer"
+                  className="px-4 py-2 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-500 hover:to-purple-500 text-white font-black text-xs sm:text-base md:text-xl flex items-center gap-1.5 sm:gap-3 shadow-lg transition-transform hover:scale-105 cursor-pointer"
                 >
-                  <Play className="w-6 h-6 sm:w-8 sm:h-8 fill-white" /> Watch Movie
+                  <Play className="w-4 h-4 sm:w-6 sm:h-6 fill-white" /> Watch Movie
                 </Link>
               )}
 
@@ -367,33 +366,51 @@ export default function HeroSlider({ movies = [] }) {
               {!user && (
                 <button
                   onClick={() => setIsMuted(false)}
-                  className="px-8 py-4 sm:px-10 sm:py-5 rounded-2xl bg-gradient-to-r from-red-600 via-orange-500 to-pink-600 hover:from-red-500 hover:to-pink-500 text-white font-black text-base sm:text-2xl border border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.4)] flex items-center gap-3 transition-transform hover:scale-105 cursor-pointer"
+                  className="px-4 py-2 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-red-600 via-orange-500 to-pink-600 hover:from-red-500 hover:to-pink-500 text-white font-black text-xs sm:text-base md:text-xl border border-red-500/20 shadow-md flex items-center gap-1.5 sm:gap-3 transition-transform hover:scale-105 cursor-pointer"
                 >
-                  <Volume2 className="w-6 h-6 sm:w-8 sm:h-8" /> Showing Trailer
+                  <Volume2 className="w-4 h-4 sm:w-6 sm:h-6" /> Showing Trailer
                 </button>
               )}
 
               <button
                 onClick={() => setIsWatchlisted(!isWatchlisted)}
-                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer ${
-                  isWatchlisted ? 'bg-cyan-500 text-black border-cyan-400 shadow-[0_0_25px_rgba(6,182,212,0.6)]' : 'bg-white/10 hover:bg-white/20 text-white'
+                className={`w-9 h-9 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer ${
+                  isWatchlisted ? 'bg-cyan-500 text-black border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.5)]' : 'bg-white/10 hover:bg-white/20 text-white'
                 }`}
                 title="Add to Watchlist"
               >
-                {isWatchlisted ? <Check className="w-7 h-7 stroke-[3]" /> : <Plus className="w-7 h-7 stroke-[3]" />}
+                {isWatchlisted ? <Check className="w-4 h-4 sm:w-6 sm:h-6 stroke-[3]" /> : <Plus className="w-4 h-4 sm:w-6 sm:h-6 stroke-[3]" />}
               </button>
             </div>
           </div>
 
           {/* Right: Clean 2-Card Preview Bar */}
-          <div className="p-3 sm:p-5 rounded-3xl bg-[#080b14]/85 backdrop-blur-2xl shadow-[0_0_45px_rgba(6,182,212,0.35)] hover:shadow-[0_0_60px_rgba(147,51,234,0.45)] transition-all duration-300 flex items-center gap-4 max-w-full opacity-25 hover:opacity-100">
+          <div className="p-2 sm:p-4 rounded-2xl sm:rounded-3xl bg-[#080b14]/85 backdrop-blur-2xl shadow-xl flex items-center gap-2 sm:gap-4 max-w-full">
+            {/* Slide Navigation Arrow Left */}
+            <button
+              onClick={() => handleSlideChange((currentIndex - 1 + movies.length) % movies.length)}
+              className="p-2 sm:p-3 rounded-xl bg-white/5 hover:bg-white/15 text-white border border-white/10 transition-all cursor-pointer"
+              title="Previous Slide"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+            </button>
+
             {/* Audio Mute Button */}
             <button
               onClick={() => setIsMuted(!isMuted)}
-              className="p-3.5 sm:p-4 mr-2 sm:mr-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-all shadow-md flex-shrink-0 cursor-pointer"
+              className="p-2 sm:p-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white backdrop-blur-md transition-all shadow-md cursor-pointer"
               title={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? <VolumeX className="w-5 h-5 sm:w-7 sm:h-7 text-rose-400" /> : <Volume2 className="w-5 h-5 sm:w-7 sm:h-7 text-cyan-400" />}
+              {isMuted ? <VolumeX className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400" /> : <Volume2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />}
+            </button>
+
+            {/* Slide Navigation Arrow Right */}
+            <button
+              onClick={() => handleSlideChange((currentIndex + 1) % movies.length)}
+              className="p-2 sm:p-3 rounded-xl bg-white/5 hover:bg-white/15 text-white border border-white/10 transition-all cursor-pointer"
+              title="Next Slide"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
             </button>
 
             {/* EXACTLY 2 DOUBLE-SIZE PREVIEW CARDS */}

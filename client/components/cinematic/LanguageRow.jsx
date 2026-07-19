@@ -28,11 +28,11 @@ export default function LanguageRow() {
               className={`relative aspect-[16/9] rounded-2xl overflow-hidden cursor-pointer border border-white/10 bg-gradient-to-br ${item.gradient} p-6 flex flex-col items-center justify-center text-center shadow-lg hover:border-cyan-400/80 hover:shadow-[0_0_35px_rgba(6,182,212,0.3)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group`}
             >
               {/* Native script label — extremely large and centered */}
-              <span className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-wide group-hover:text-cyan-300 transition-colors duration-300">
+              <span className="text-2xl sm:text-4xl md:text-6xl font-black text-white tracking-wide group-hover:text-cyan-300 transition-colors duration-300">
                 {item.native}
               </span>
               {/* English name label — styled underneath */}
-              <span className="text-[14px] sm:text-base md:text-xl font-black text-white/80 group-hover:text-white uppercase tracking-widest mt-2 sm:mt-4 transition-colors duration-300">
+              <span className="text-[10px] sm:text-xs md:text-sm font-black text-white/80 group-hover:text-white uppercase tracking-widest mt-1 sm:mt-2 transition-colors duration-300">
                 {item.name}
               </span>
               {/* Subtle glass reflection overlay */}
