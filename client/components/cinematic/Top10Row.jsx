@@ -91,7 +91,7 @@ export default function Top10Row({ movies = [] }) {
             <div
               key={movie._id}
               onClick={() => handleCardClick(movie._id)}
-              className="relative flex-shrink-0 w-[250px] sm:w-[290px] md:w-[320px] group/card cursor-pointer block"
+              className="relative flex-shrink-0 w-[170px] sm:w-[210px] md:w-[240px] group/card cursor-pointer block"
             >
               {/* Vertical Aspect 2/3 Large Poster Card */}
               <div className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden border border-white/10 shadow-xl brightness-75 contrast-95 saturate-90 group-hover/card:brightness-110 group-hover/card:contrast-110 group-hover/card:saturate-125 group-hover/card:scale-105 group-hover/card:border-cyan-400/80 group-hover/card:shadow-[0_0_35px_rgba(6,182,212,0.5)] transition-all duration-300">
@@ -144,7 +144,7 @@ export default function Top10Row({ movies = [] }) {
               </div>
 
               {/* Dynamic Gradient Giant Number 1-10 Overlapping Bottom-Left */}
-              <span className={`absolute bottom-[-20px] left-[-24px] z-30 text-[120px] sm:text-[140px] md:text-[150px] leading-none font-black text-transparent bg-clip-text bg-gradient-to-t ${grad} select-none pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.95)] group-hover/card:scale-110 transition-all duration-300`}>
+              <span className={`absolute bottom-[-16px] left-[-18px] z-30 text-[100px] sm:text-[110px] md:text-[120px] leading-none font-black text-transparent bg-clip-text bg-gradient-to-t ${grad} select-none pointer-events-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.95)] group-hover/card:scale-110 transition-all duration-300`}>
                 {idx + 1}
               </span>
             </div>
