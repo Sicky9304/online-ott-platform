@@ -188,110 +188,111 @@ export default function AdminDashboardPage() {
     }
   };
 
+  // SaaS Live Analytics widgets
   return (
-    <div className="w-full px-4 sm:px-8 md:px-16 pt-10 sm:pt-16 pb-24 min-h-screen space-y-8 select-none">
+    <div className="w-full px-4 sm:px-8 md:px-12 pt-8 pb-24 min-h-screen space-y-6 select-none">
       
       {/* 2030 Futuristic SaaS Header */}
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 bg-cyan-950/10 border border-cyan-500/10 p-6 sm:p-8 rounded-3xl backdrop-blur-md shadow-2xl">
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 bg-cyan-950/10 border border-cyan-500/10 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-2xl">
         <div>
-          <div className="flex items-center gap-2.5 text-cyan-400 font-black text-xs sm:text-sm uppercase tracking-widest mb-1.5">
-            <ShieldCheck className="w-5 h-5 text-cyan-400 animate-pulse" /> 
+          <div className="flex items-center gap-2 text-cyan-400 font-black text-xs uppercase tracking-widest mb-1">
+            <ShieldCheck className="w-4 h-4 text-cyan-400 animate-pulse" /> 
             <span>CINEVERSE ADMIN ENGINE v3.0</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-none">
+          <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-none">
             Control Center
           </h1>
-          <p className="text-gray-400 text-sm sm:text-base font-semibold mt-2">
+          <p className="text-gray-400 text-xs sm:text-sm font-semibold mt-1">
             Configure system configurations, manage catalog assets, and monitor active cloud quotas.
           </p>
         </div>
 
         {/* Global Action Bar */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={handleOpenAdd}
-            className="px-6 py-4 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-sm flex items-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.35)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
+            className="px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs sm:text-sm flex items-center gap-1.5 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
           >
-            <Plus className="w-5 h-5 stroke-[3]" /> Add {activeTab.slice(0, -1).toUpperCase()}
+            <Plus className="w-4 h-4 stroke-[3]" /> Add {activeTab.slice(0, -1).toUpperCase()}
           </button>
           
           <Link
             href="/admin/upload"
-            className="px-5 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-sm font-black flex items-center gap-2 transition-colors"
+            className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs sm:text-sm font-black flex items-center gap-1.5 transition-colors"
           >
-            <UploadCloud className="w-5 h-5 text-cyan-400" /> Upload Engine
+            <UploadCloud className="w-4 h-4 text-cyan-400" /> Upload Engine
           </Link>
           
           <Link
             href="/admin/storage"
-            className="px-5 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-sm font-black flex items-center gap-2 transition-colors"
+            className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white border border-white/10 text-xs sm:text-sm font-black flex items-center gap-1.5 transition-colors"
           >
-            <HardDrive className="w-5 h-5 text-cyan-400" /> Storage Config
+            <HardDrive className="w-4 h-4 text-cyan-400" /> Storage Config
           </Link>
 
           <button
             onClick={logout}
-            className="px-5 py-4 rounded-2xl bg-gradient-to-r from-red-600 via-orange-600 to-rose-700 hover:opacity-90 text-white font-black text-sm flex items-center gap-2 shadow-[0_0_25px_rgba(220,38,38,0.5)] transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="px-4 py-3 rounded-xl bg-gradient-to-r from-red-600 via-orange-600 to-rose-700 hover:opacity-90 text-white font-black text-xs sm:text-sm flex items-center gap-1.5 shadow-[0_0_15px_rgba(220,38,38,0.35)] transition-all cursor-pointer transform hover:scale-105 active:scale-95"
             title="Log Out Session"
           >
-            <LogOut className="w-5 h-5" /> Logout
+            <LogOut className="w-4 h-4" /> Logout
           </button>
         </div>
       </div>
 
       {/* SaaS Live Analytics widgets */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div className="glass-panel p-6 rounded-3xl border border-white/5 shadow-xl flex flex-col justify-between space-y-4 hover:border-cyan-500/20 transition-all">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="glass-panel p-5 rounded-2xl border border-white/5 shadow-lg flex flex-col justify-between space-y-3 hover:border-cyan-500/20 transition-all">
           <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-black uppercase tracking-wider">Active Catalog Titles</span>
-            <Film className="w-5 h-5 text-cyan-400" />
+            <span className="text-[10px] font-black uppercase tracking-wider">Active Catalog Titles</span>
+            <Film className="w-4.5 h-4.5 text-cyan-400" />
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-black text-white">{analytics.totalTitles}</div>
-            <p className="text-xs text-gray-400 font-extrabold mt-1">
+            <div className="text-2xl sm:text-3xl font-black text-white">{analytics.totalTitles}</div>
+            <p className="text-[10px] text-gray-400 font-extrabold mt-0.5">
               {analytics.totalMovies} Movies • {analytics.totalSeries} Web Series
             </p>
           </div>
         </div>
 
-        <div className="glass-panel p-6 rounded-3xl border border-white/5 shadow-xl flex flex-col justify-between space-y-4 hover:border-purple-500/20 transition-all">
+        <div className="glass-panel p-5 rounded-2xl border border-white/5 shadow-lg flex flex-col justify-between space-y-3 hover:border-purple-500/20 transition-all">
           <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-black uppercase tracking-wider">Subscribers Base</span>
-            <Eye className="w-5 h-5 text-purple-400" />
+            <span className="text-[10px] font-black uppercase tracking-wider">Subscribers Base</span>
+            <Eye className="w-4.5 h-4.5 text-purple-400" />
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-black text-white">{analytics.totalUsers}</div>
-            <p className="text-xs text-emerald-400 font-black mt-1">
+            <div className="text-2xl sm:text-3xl font-black text-white">{analytics.totalUsers}</div>
+            <p className="text-[10px] text-emerald-400 font-black mt-0.5">
               Active concurrent nodes
             </p>
           </div>
         </div>
 
-        <div className="glass-panel p-6 rounded-3xl border border-white/5 shadow-xl flex flex-col justify-between space-y-4 hover:border-amber-500/20 transition-all">
+        <div className="glass-panel p-5 rounded-2xl border border-white/5 shadow-lg flex flex-col justify-between space-y-3 hover:border-amber-500/20 transition-all">
           <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-black uppercase tracking-wider">Default Storage</span>
-            <HardDrive className="w-5 h-5 text-amber-400" />
+            <span className="text-[10px] font-black uppercase tracking-wider">Default Storage</span>
+            <HardDrive className="w-4.5 h-4.5 text-amber-400" />
           </div>
           <div>
-            <div className="text-2xl sm:text-3xl font-black text-amber-300 uppercase truncate">
+            <div className="text-xl sm:text-2xl font-black text-amber-300 uppercase truncate">
               {analytics.activeStorageProvider}
             </div>
-            <p className="text-xs text-gray-400 font-extrabold mt-1">
+            <p className="text-[10px] text-gray-400 font-extrabold mt-0.5">
               Multi-cloud integration active
             </p>
           </div>
         </div>
 
-        <div className="glass-panel p-6 rounded-3xl border border-white/5 shadow-xl flex flex-col justify-between space-y-4 hover:border-emerald-500/20 transition-all">
+        <div className="glass-panel p-5 rounded-2xl border border-white/5 shadow-lg flex flex-col justify-between space-y-3 hover:border-emerald-500/20 transition-all">
           <div className="flex items-center justify-between text-gray-400">
-            <span className="text-xs font-black uppercase tracking-wider">Aggregate Traffic Views</span>
-            <Activity className="w-5 h-5 text-emerald-400" />
+            <span className="text-[10px] font-black uppercase tracking-wider">Aggregate Traffic Views</span>
+            <Activity className="w-4.5 h-4.5 text-emerald-400" />
           </div>
           <div>
-            <div className="text-3xl sm:text-4xl font-black text-white">
+            <div className="text-2xl sm:text-3xl font-black text-white">
               {(analytics.totalViews || 0).toLocaleString()}
             </div>
-            <p className="text-xs text-gray-400 font-extrabold mt-1">
+            <p className="text-[10px] text-gray-400 font-extrabold mt-0.5">
               {analytics.moviesWithTrailer} trailers buffered
             </p>
           </div>
@@ -385,62 +386,62 @@ export default function AdminDashboardPage() {
           <div className="overflow-x-auto w-full">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="border-b border-white/5 bg-white/2 text-gray-400 text-sm font-black uppercase">
-                  <th className="p-5 pl-8">Poster</th>
-                  <th className="p-5">Title</th>
-                  <th className="p-5">Year</th>
-                  <th className="p-5">Language</th>
-                  <th className="p-5">Age Rating</th>
-                  <th className="p-5">IMDb score</th>
-                  <th className="p-5 pr-8 text-right">Actions</th>
+                <tr className="border-b border-white/5 bg-white/2 text-gray-400 text-xs font-black uppercase">
+                  <th className="p-3 pl-6">Poster</th>
+                  <th className="p-3">Title</th>
+                  <th className="p-3">Year</th>
+                  <th className="p-3">Language</th>
+                  <th className="p-3">Age Rating</th>
+                  <th className="p-3">IMDb score</th>
+                  <th className="p-3 pr-6 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-base sm:text-lg">
+              <tbody className="divide-y divide-white/5 text-sm">
                 {catalogItems.map((item) => (
                   <tr key={item._id} className="hover:bg-white/2 transition-colors">
-                    <td className="p-5 pl-8">
+                    <td className="p-3 pl-6">
                       <img
                         src={item.posterUrl}
                         alt=""
                         referrerPolicy="no-referrer"
-                        className="w-12 h-18 rounded-xl object-cover border border-white/10 shadow-sm"
+                        className="w-10 h-14 rounded-lg object-cover border border-white/10 shadow-sm"
                         onError={(e) => { e.target.src = 'https://via.placeholder.com/80x120?text=No+Poster'; }}
                       />
                     </td>
-                    <td className="p-5 pl-8">
-                      <div className="font-black text-white text-lg sm:text-xl line-clamp-1 max-w-sm">{item.title}</div>
+                    <td className="p-3 pl-6">
+                      <div className="font-black text-white text-sm sm:text-base line-clamp-1 max-w-sm">{item.title}</div>
                       {item.genres && (
-                        <div className="text-xs text-gray-400 font-extrabold mt-1 truncate max-w-sm">
+                        <div className="text-[10px] text-gray-400 font-extrabold mt-0.5 truncate max-w-sm">
                           {item.genres.join(' | ')}
                         </div>
                       )}
                     </td>
-                    <td className="p-5 text-gray-200 font-black text-base sm:text-lg">{item.releaseYear}</td>
-                    <td className="p-5">
-                      <span className="px-3.5 py-1.5 rounded-xl bg-cyan-950/60 text-cyan-300 border border-cyan-500/30 text-sm sm:text-base font-black">
+                    <td className="p-3 text-gray-200 font-black text-xs sm:text-sm">{item.releaseYear}</td>
+                    <td className="p-3">
+                      <span className="px-2.5 py-1 rounded-lg bg-cyan-950/60 text-cyan-300 border border-cyan-500/30 text-xs font-black">
                         {item.language || 'English'}
                       </span>
                     </td>
-                    <td className="p-5">
-                      <span className="px-3 py-1 rounded-lg bg-white/10 text-white text-sm sm:text-base font-black">
+                    <td className="p-3">
+                      <span className="px-2 py-0.5 rounded bg-white/10 text-white text-xs font-black">
                         {item.rating || 'U/A 16+'}
                       </span>
                     </td>
-                    <td className="p-5 text-amber-300 font-black text-base sm:text-lg">★ {item.imdbRating || '8.5'}</td>
-                    <td className="p-5 pr-8 text-right space-x-2 sm:space-x-3">
+                    <td className="p-3 text-amber-300 font-black text-xs sm:text-sm">★ {item.imdbRating || '8.5'}</td>
+                    <td className="p-3 pr-6 text-right space-x-1.5 sm:space-x-2">
                       <button
                         onClick={() => handleOpenEdit(item)}
-                        className="p-3 rounded-2xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/40 hover:scale-105 transition-all cursor-pointer inline-flex items-center justify-center"
+                        className="p-2 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/40 hover:scale-105 transition-all cursor-pointer inline-flex items-center justify-center"
                         title="Edit Record"
                       >
-                        <Edit3 className="w-5 h-5" />
+                        <Edit3 className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleDelete(item._id)}
-                        className="p-3 rounded-2xl bg-rose-500/20 text-rose-300 border border-rose-500/30 hover:bg-rose-500/40 hover:scale-105 transition-all cursor-pointer inline-flex items-center justify-center"
+                        className="p-2 rounded-xl bg-rose-500/20 text-rose-300 border border-rose-500/30 hover:bg-rose-500/40 hover:scale-105 transition-all cursor-pointer inline-flex items-center justify-center"
                         title="Delete Record"
                       >
-                        <Trash2 className="w-5 h-5" />
+                        <Trash2 className="w-4 h-4" />
                       </button>
                     </td>
                   </tr>
